@@ -34,3 +34,11 @@ nx.draw(destinos_grafo, pos, with_labels=True, node_color='lightblue', node_size
 labels = nx.get_edge_attributes(destinos_grafo, 'time')
 nx.draw_networkx_edge_labels(destinos_grafo, pos, edge_labels=labels)
 plt.show()
+
+# Ruta más corta de Portal Américas a Portal Norte
+shortest_path = nx.dijkstra_path(destinos_grafo, 'portalAmericas', 'portalNorte', weight='time')
+shortest_path_length = nx.dijkstra_path_length(destinos_grafo, 'portalAmericas', 'portalNorte', weight='time')
+
+# Imprimir la ruta y la distancia
+print(f"La ruta más corta es: {shortest_path}")
+print(f"El tiempo total de viaje es: {shortest_path_length} minutos")
